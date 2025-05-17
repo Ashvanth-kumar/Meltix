@@ -105,14 +105,20 @@ What recipe do you suggest?
       }
     );
 
-    const data = await response.json();
-
-    if (data.error) {
-      return res.status(500).send(data.error);
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error("HF API error:", errorText);
+      return res.status(response.status).send(errorText);
     }
 
-    const recipeText = data[0]?.generated_text || "No recipe generated.";
+    const data = await response.json();
+
+    const recipeText = Array.isArray(data) 
+      ? data[0]?.generated_text || "No recipe generated." 
+      : data.generated_text || "No recipe generated.";
+
     res.status(200).send(recipeText);
+
   } catch (error) {
     console.error("Error:", error.message);
     res.status(500).send("Internal server error");

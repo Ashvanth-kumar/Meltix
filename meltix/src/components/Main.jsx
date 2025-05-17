@@ -1,7 +1,7 @@
 import React from "react"
 import IngredientList from "./IngredientsList"
 import Recipe from "./Recipe"
-import getRecipeFromMistral from "../../api/getRecipe"
+// import getRecipeFromMistral from "../../api/getRecipe"
 // import {getRecipeFromMistral } from ""
 
 export default function Main(){
@@ -14,14 +14,13 @@ export default function Main(){
         console.log("Fetching recipe with :" , ingredients)
         try {
             const response = await fetch("/api/getRecipe", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ ingredients }),
+                method: "POST",
+                headers: {"Content-Type": "application/json" },
+                body: JSON.stringify({ ingredients }),
             });
 
             const text = await response.text();
+            console.log("Recipe received:", text); // <-- this logs what the API sends back
             setRecipe(text);
         } catch (err) {
             console.error("Error fetching recipe:", err);
