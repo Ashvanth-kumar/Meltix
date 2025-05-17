@@ -1,0 +1,230 @@
+
+:root {
+  --color-primary: #c62828;     /* deep red */
+  --color-accent: #fbe9e7;      /* beige */
+  --color-bg: #2c2c2c;          /* near black */
+  --color-surface: #121212;     /* dark grey */
+  --color-text: #e0e0e0;        /* light grey */
+  --color-muted: #9e9e9e;       /* medium grey */
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+header {
+  /*background-image: url('./assets/GPT_BG.png'); /* Use the same image path as in .hero-section */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  color: var(--color-accent);
+  padding: 1.5rem 2rem;
+  text-align: center;
+
+  /* Make it translucent */
+  background-color: rgba(0, 0, 0, 0.4); /* Fallback color */
+  backdrop-filter: blur(6px); /* Optional: glassmorphism effect */
+  -webkit-backdrop-filter: blur(6px); /* Safari support */
+  
+  position: relative;
+  z-index: 10;
+}
+
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* dark overlay */
+  z-index: 0;
+}
+
+header * {
+  position: relative;
+  z-index: 1;
+}
+
+
+footer {
+  background-color: var(--color-surface);
+  /* background-image: url('./assets/dishes_bg.jpg'); */
+  padding: 1rem 2rem;
+  text-align: center;
+  color: var(--color-accent);
+}
+
+h1, h2, h3, h4 {
+  color: var(--color-primary);
+  margin-top: 1.5rem;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  background-color: var(--color-primary);
+  color: var(--color-accent);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #b71c1c;
+}
+
+input[type="text"],
+textarea {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-muted);
+  color: var(--color-text);
+  padding: 0.5rem;
+  border-radius: 4px;
+  width: 100%;
+}
+
+section {
+  background-color: var(--color-surface);
+  padding: 1rem 2rem;
+  margin: 1rem auto;
+  border-radius: 8px;
+  max-width: 800px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 2rem;
+}
+
+.get-recipe-container {
+  background-color: var(--color-accent);
+  color: #000;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.get-recipe-container h3 {
+  margin-bottom: 0.5rem;
+  color: var(--color-primary);
+}
+
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url('./assets/GPT_BG.png'); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.hero-card {
+  background-color: rgba(18, 18, 18, 0.95);
+  padding: 3rem 4rem; /* Increased padding */
+  border-radius: 20px;
+  max-width: 900px; /* Increased width */
+  width: 100%;
+  color: #fbe9e7;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* space between children */
+  min-height: 60vh; 
+  justify-content: center; 
+}
+
+
+
+.hero-card h1 {
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  color: #c62828; /* Red title */
+}
+
+.hero-card p {
+  font-size: 1.2rem;
+  color: #e0e0e0;
+  margin-bottom: 1.5rem;
+}
+
+.hero-card button {
+  background-color: #c62828;
+  color: #fbe9e7;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.hero-card button:hover {
+  background-color: #b71c1c;
+}
+
+/* recipe section */
+
+.recipe-section {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  padding: 2rem 2.5rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  line-height: 1.8;
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+.recipe-section:hover {
+  transform: scale(1.01);
+}
+
+.recipe-section h1,
+.recipe-section h2,
+.recipe-section h3 {
+  color: var(--color-primary);
+  margin-top: 1.5rem;
+}
+
+.recipe-section p {
+  margin-bottom: 1rem;
+}
+
+.recipe-section ul,
+.recipe-section ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.recipe-section li {
+  margin-bottom: 0.5rem;
+}
+
+.recipe-section strong {
+  color: var(--color-accent);
+}
