@@ -1,7 +1,9 @@
-import React from "react";
+import ReactMarkdown from "react-markdown"
 
-export default function Recipe() {
+export default function Recipe(props) {
     return (
-        <h1>Hello</h1>
+        <section>
+            <ReactMarkdown> {props.recipe} </ReactMarkdown>
+        </section>
     )
 }

@@ -1,18 +1,34 @@
 import React from "react"
 import IngredientList from "./IngredientsList"
 import Recipe from "./Recipe"
+import getRecipeFromMistral from "../../api/getRecipe"
 // import {getRecipeFromMistral } from ""
 
 export default function Main(){
 
 
     const [ingredients,setIngredients] = React.useState([])
-    const [recipeShown, setRecipeShown] = React.useState(false)
+    const [recipe, setRecipe] = React.useState("")
 
-    function toggleRecipeShown(){
-        setRecipeShown(prevShown => !prevShown )
-        console.log({recipeShown})
+    async function getRecipe() {
+        console.log("Fetching recipe with :" , ingredients)
+        try {
+            const response = await fetch("/api/getRecipe", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ ingredients }),
+            });
+
+            const text = await response.text();
+            setRecipe(text);
+        } catch (err) {
+            console.error("Error fetching recipe:", err);
+            setRecipe("Sorry, something went wrong.");
+        }
     }
+
 
     function addIngredient(formData) {
 
@@ -34,8 +50,8 @@ export default function Main(){
                 />
                 <button > Add</button>
             </form>
-            {ingredients.length > 0 && <IngredientList ingredients={ingredients} toggleRecipeShown = {toggleRecipeShown}/>}
-            {recipeShown && <Recipe />}
+            {ingredients.length > 0 && <IngredientList ingredients={ingredients} getRecipe = {getRecipe}/>}
+            {recipe && <Recipe recipe={recipe}/>}
         </main>
 
     )
