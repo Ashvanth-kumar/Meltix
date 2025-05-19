@@ -1,17 +1,18 @@
 import React from "react"
 import IngredientList from "./IngredientsList"
 import Recipe from "./Recipe"
-// import getRecipeFromMistral from "../../api/getRecipe"
-// import {getRecipeFromMistral } from ""
+import Loader from "./Loader"
 
 export default function Main(){
 
 
     const [ingredients,setIngredients] = React.useState([])
     const [recipe, setRecipe] = React.useState("")
+    const [isLoading, setIsLoading] = React.useState(false)
 
     async function getRecipe() {
         console.log("Fetching recipe with :" , ingredients)
+        setIsLoading(true)
         try {
             const response = await fetch("/api/getRecipe", {
                 method: "POST",
@@ -25,6 +26,8 @@ export default function Main(){
         } catch (err) {
             console.error("Error fetching recipe:", err);
             setRecipe("Sorry, something went wrong.");
+        } finally {
+            setIsLoading(false)
         }
     }
 
@@ -38,19 +41,23 @@ export default function Main(){
     }
 
     return (
-        <main>
-            <form 
-                action={addIngredient} className="add-ingredient-form">
+        <main className="main-card">
+            <form action={addIngredient} className="input-row">
                 <input 
                     type="text " 
                     placeholder=" eg.Oregano"
                     name="ingredient"
                     aria-label="Add ingredient"
                 />
-                <button > Add</button>
+                <button >Add</button>
             </form>
-            {ingredients.length > 0 && <IngredientList ingredients={ingredients} getRecipe = {getRecipe}/>}
-            {recipe && <Recipe recipe={recipe}/>}
+            
+            {ingredients.length > 0 && (
+                <IngredientList ingredients={ingredients} getRecipe = {getRecipe}/>
+            )}
+
+            {isLoading && <Loader />}
+            { !isLoading && recipe && <Recipe recipe={recipe}/>}
         </main>
 
     )

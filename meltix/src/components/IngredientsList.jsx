@@ -3,13 +3,13 @@ export default function IngredientsList(props){
         <li key={ingredient}>{ ingredient} </li>
     ))
     return (
-        <section className="Ingredients-section">
+        <section className="ingredients-section">
             <h2>
             Ingredients on hand :
             </h2>
             <ul className="ingerdients-list" aria-live="polite"> {ingredientsListItems}  </ul>
             {props.ingredients.length > 3  && <div className="get-recipe-container">
-                <div className="Strts">
+                <div>
                     <h3>Ready for a recipe ?</h3>
                     <p>Generate a recipe from your list of ingredients.</p>
                 </div>
