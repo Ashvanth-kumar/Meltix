@@ -57,7 +57,8 @@ export default function Main(){
             )}
 
             {isLoading && <Loader />}
-            { !isLoading && recipe && <Recipe recipe={recipe}/>}
+            
+            { !isLoading && recipe && <h2> Meltix Suggests that :</h2> &&<Recipe recipe={recipe}/>}
         </main>
 
     )

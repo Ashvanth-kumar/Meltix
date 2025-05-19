@@ -16,7 +16,7 @@
 }
 
 html, body {
-  font-family: 'Georgia', 'Segoe UI', serif ;
+  font-family: serif ;
   background: var(--color-black);
   color: var(--color-beige);
   height: 100%;
@@ -27,7 +27,7 @@ html, body {
 body {
   position: relative;
   min-height: 100vh;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Geneva, Verdana, sans-serif;
   color: var(--color-beige);
   margin: 0;
   background: url('./assets/GPT_BG.png') no-repeat center center fixed;
@@ -120,7 +120,6 @@ header h1 {
 
 /* Ingredients Section */
 .ingredients-section {
-  font-family: 'Playfair Display', serif;
   background-color: rgba(245, 245, 220, 0.1); /* subtle beige tint */
   border-left: 4px solid var(--color-red);
   padding: 1rem 1.5rem;
@@ -130,19 +129,20 @@ header h1 {
 
 }
 
-.ingredients-section h3 {
-  color: var(--color-red);
-  margin-bottom: 0.5rem;
+.ingredients-section h2 {
+  color: var(--color-beige);
+  margin-bottom: 0.9rem;
 }
 
 .ingredients-section ul {
   list-style-type: disc;
-  padding-left: 1.5rem;
+  padding-left: 1.75rem;
   margin: 0.5rem 0 1rem;
 }
 
 .ingredients-section li {
-  margin-bottom: 0.3rem;
+  font-family: 'Verdana', sans-serif;
+  margin-bottom: 0.5rem;
 }
 
 .ingredients-section button {
@@ -177,12 +177,14 @@ header h1 {
 }
 
 .get-recipe-container h3 {
+  font-family: 'Georgia', serif;
   margin: 0;
   color: var(--color-red);
   font-size: 1.25rem;
 }
 
 .get-recipe-container p {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   color: var(--color-dark-grey);
   font-size: 1rem;
@@ -209,7 +211,6 @@ header h1 {
 
 /* Recipe section */
 .recipe-section {
-  font-family: 'Playfair Display', serif;
   background-color: rgba(255, 255, 255, 0.04); /* subtle white tint */
   border: 1px solid var(--color-grey);
   border-left: 6px solid var(--color-red);
@@ -226,7 +227,6 @@ header h1 {
   color: var(--color-red);
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  font-family: 'Playfair Display', serif;
 }
 
 .recipe-section p,
@@ -235,7 +235,7 @@ header h1 {
   line-height: 1.7;
   margin-bottom: 0.75rem;
   color: var(--color-beige);
-  font-family: 'Playfair Display', serif;
+  font-family: serif;
 }
 
 .recipe-section ul {
