@@ -21,7 +21,7 @@ export default function Main(){
             });
 
             const text = await response.text();
-            console.log("Recipe received:", text); // <-- this logs what the API sends back
+            console.log("Recipe received:", text); 
             setRecipe(text);
         } catch (err) {
             console.error("Error fetching recipe:", err);

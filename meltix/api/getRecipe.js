@@ -30,7 +30,7 @@ What recipe do you suggest?
         body: JSON.stringify({
           inputs: prompt,
           parameters: {
-            max_new_tokens: 2000,
+            max_new_tokens: 1024,
             return_full_text: false,
           },
         }),
