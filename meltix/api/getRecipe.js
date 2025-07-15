@@ -20,7 +20,7 @@ What recipe do you suggest?
 
   try {
     const response = await fetch(
-      "https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Base-2503",
+      "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.3",
       {
         method: "POST",
         headers: {
